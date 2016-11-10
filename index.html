@@ -3,96 +3,19 @@
   <head>
     <title>Connect 4</title>
     <style>
-      body {
-        background: lightblue;
-      }
-      .wrapper {
-        width: 1000px;
-        margin: 0 auto;
-      }
-      .row {
-        width: 100%;
-        margin: 0 auto;
-      }
-      .row button {
-        width: 52px;
-        height: 30px;
-        margin-bottom: 10px;
-      }
-
-      .row div {
-        display: inline-block;
-        width: 50px;
-        height: 50px;
-        border: 1px solid black;
-        background-color: white;
-      }
+      .box {
+        float:left;
+        width:100px;
+        height:100px;
+        margin-right:5px;
+        margin-bottom:5px;
+        background-color:#0000FF;
+      }   
     </style>
   </head>
   <body>
     <div class="wrapper">
       <div class="row drop">
-        <button>drop here</button>
-        <button>drop here</button>
-        <button>drop here</button>
-        <button>drop here</button>
-        <button>drop here</button>
-        <button>drop here</button>
-        <button>drop here</button>
-      </div>
-      <div class="row one">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="row two">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="row three">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="row four">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="row five">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="row six">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
       </div>
     </div>
 
@@ -100,6 +23,17 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
+
+      var $container = $("<div></div>").css("float","left");
+
+      for(var i = 0; i < 2; i++) {
+          for (var j = 0; j < 2; j++){
+              $("<div></div>").addClass("box").appendTo($container);
+          }
+          $("<div></div>").css("clear", "both").appendTo($container);
+      }
+      
+      $container.appendTo($("body"));
     </script>
   </body>
 </html>
