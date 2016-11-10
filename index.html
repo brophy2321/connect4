@@ -108,6 +108,18 @@
       socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
       });
+
+      var setColor = $("#set-color")
+
+function changeColor (e){
+  var color = $('#color-field').val()
+  $(".brush").css("background", color);
+  e.preventDefault()
+}
+
+
+
+
     </script>
   </body>
 </html>
